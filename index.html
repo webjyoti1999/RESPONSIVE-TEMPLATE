@@ -1,0 +1,1442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Shopper</title>
+    <style>
+        .heding-top{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 5px;
+            font-size: .85rem;
+            background-color: rgb(236, 234, 234);
+        }
+        .heding-top ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        .heding-top li{
+            padding: 0px 10px;
+            color: black;
+        }
+        a{
+            text-decoration: none;
+        }
+        select{
+            border: none;
+            background-color: rgb(236, 234, 234) ;
+        }
+        .center-select{
+            border-left: 1px solid rgb(224, 224, 224);
+            border-right: 1px solid rgb(224, 222, 222);
+        }
+        .heding-top .icons span{
+            color: rgba(170, 170, 170, 0.979);
+        }
+        .heding-top .icons span:hover{
+            color: rgba(133, 133, 133, 0.979);
+        }
+        header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+            z-index: 1;
+            background-color: white;
+        }
+       header ul{
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 10px ;
+        }
+        header li{
+            margin: 20px 15px;
+            color:rgba(0, 0, 0, 0.808);
+        }
+        header li:hover{
+            margin: 20px 15px;
+            color:orangered;
+        }
+        header .icons li{
+            margin: 20px 10px; 
+        }
+        header li span{
+            color: black;
+        }
+        header li span:hover{
+            color: orangered;
+        }
+        .number{
+            background-color: tomato;
+            color:white;
+            position:absolute;
+            top:25px;
+            right: 108px;
+            border-radius: 30px;
+            padding: 1px 5px;
+            font-size: 10px;
+        }
+        .section-heading{
+            background-image: url(./public/image/heading-bg.png);
+            background-size: cover;
+            letter-spacing: 3px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px;
+            font-size: .7rem;
+
+        }
+        .fashion{
+            height: 450px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 4fr 4fr 4fr;
+        }
+        .woman-fashion{
+            position: relative;
+            background-image: url(./public/image/women2.jpg);
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            color: white;
+            z-index: 0;
+            transition: 1s;
+        }
+        .woman-fashion:hover::after{
+            content: '';
+            background-color: rgba(0, 0, 0, 0.192);
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(.8);
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            bottom: 0px;
+            position: absolute;
+            transition: 1s;
+            z-index: -1;
+            cursor: pointer;
+        }
+        .woman-fashion:hover .bi{
+            margin-left: 5px;
+            transition: .5s;
+        }
+        .woman-fashion .bi{
+            transition: .5s;
+        }
+        .mans-fashion{
+            background-image: url(./public/image/men2.jpg);
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+            color: white;
+            z-index: 0;
+            cursor: pointer;
+        }
+        .mans-fashion:hover::after{
+            content: '';
+            background-color: rgba(0, 0, 0, 0.192);
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(.8);
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            bottom: 0px;
+            position: absolute;
+            transition: 1s;
+            z-index: -1;
+        }
+        .mans-fashion:hover .bi{
+            margin-left: 5px;
+            transition: .5s;
+        }
+        .mans-fashion .bi{
+            transition: .5s;
+        }
+        .kids-fashion{
+            background-image: url(./public/image/kid2.jpg);
+            background-size: cover; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+            color: white;
+            z-index: 0;
+            transition: 1s;
+        }
+        .kids-fashion:hover::after{
+            content: '';
+            background-color: rgba(0, 0, 0, 0.192);
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(.5);
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            bottom: 0px;
+            position: absolute;
+            transition: 1s;
+            z-index: -1;
+            cursor: pointer;
+        }
+        .kids-fashion:hover .bi{
+            margin-left: 5px;
+            transition: .5s;
+        }
+        .kids-fashion .bi{
+            transition: .5s;
+        }
+        .fashion button{
+            background-color: white;
+            border: none;
+            text-align: left;
+            padding-left: 30px;
+            height: 50px;
+            width: 170px;
+            transition: .5s;
+        }
+        .fashion-footer{
+            display: flex;
+            justify-content: space-between;
+            margin: 0px 100px;
+            padding: 30px 10px;
+            border-bottom: 1px solid lightgrey;
+            margin-bottom: 10px;
+        }
+        .fashion-footer>div{
+            display: flex;
+        }
+        .fashion-footer h5,p{
+            font-size: 14px;
+            margin: 5px;
+        }
+        .fashion-footer span{
+            font-size: 20px;
+            margin-right: 15px;
+            color: orangered;
+        }
+        .new-collection-heading{
+            text-align: center;
+            padding: 20px 410px;
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+        .new-collection-posters{
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+            grid-gap: 30px;
+            padding: 0px 100px; 
+        }
+        .left-poster{
+            background-image: url(./public/image/amazon1.jpg);
+            background-size: 110%;
+            height: 350px;
+            color: white;
+            text-align: center;
+            position: relative;
+            transition: .5s;
+            padding-top: 150px;
+        }
+        .left-poster button{
+            width: 150px;
+            margin-top: 10px;
+            background-color: transparent;
+            color: white;
+            text-align: left;
+            padding-left: 15px;
+            border: none;
+            transition: .5s;
+        }
+        .left-poster button span{
+            transition: .5s;
+        }
+        .left-poster:hover button span{
+            margin-left: 5px;
+            transition: .5s;
+        }
+        .left-poster:hover{
+            background-position: -8px 0px;
+            transition: .5s;
+        }
+        .right-poster{
+            background-color: #f4f4f4;
+            background-image: url(./public/image/man-bag2.png);
+            background-repeat: no-repeat;
+            background-size:auto 100%;
+            background-position: 300px;
+            position: relative;
+            height: 350px;
+            color: black;
+            padding-left: 80px;
+            padding-top: 150px;
+            transition: .5s;
+        }
+        .right-poster button{
+            width: 150px;
+            text-align: left;
+            background-color: transparent;
+            border: none;
+            transition: .5s;
+        }
+        .right-poster:hover{
+            background-position: 293px;
+            transition: .5s;
+        }
+        .right-poster button span{
+            transition: .5s;
+        }
+        .right-poster:hover button span{
+            margin-left: 5px;
+            transition: .5s;
+        }
+        .poster-offer{
+            position: absolute;
+            top: 20px;
+            right:10px;
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 150px;
+            text-align: center;
+        }
+        .new-collection-posters2{
+            margin: 20px 0px;
+            display: grid;
+            grid-template-columns: 8fr 4fr;
+            grid-gap: 30px;
+            padding: 0px 100px; 
+        }
+        .new-collection-posters2 .right-poster{
+            background-image: url(./public/image/basic-woman.png);
+            background-position: 250px;
+        }
+        .new-collection-posters2 .right-poster:hover{
+            background-position: 240px;
+        }
+        .new-collection-posters2 .left-poster{
+            background-image: url(./public/image/sweatshirt-woman.png);
+            background-color:#f4f4f4 ;
+        }
+        .top-seller-heading{
+            text-align: center;
+            margin: 60px;
+        }
+        .top-seller-heading ul{
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            margin-top: 25px;
+            padding: 0px;
+        }
+        .top-seller-heading li{
+            margin: 0px 20px;
+            padding: 5px;
+            color: black;
+            font-weight: bold;
+        }
+        .top-seller-heading li:hover{
+            color:#ff6f61;
+        }
+        .top-seller-heading .active{
+            color: #ff6f61;
+            border-bottom: 1px solid #ff6f61;
+        }
+        .top-seller-body{
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr 3fr;
+            grid-gap: 15px;
+            margin: 0px 100px;
+        }
+        .top-seller-body div{
+            border: 1px solid transparent;
+            width: 100%;
+            position: relative;
+        }
+        .top-seller-body .image{
+            height: 300px;
+            width: 100%;
+            text-align: center;
+        }
+        .top-seller-body .sticker-new{
+            position: absolute;
+            left: 0px;
+            top:20px;
+            width: 50px;
+            font-size: 10px;
+            padding: 3px;
+            background-color: white;
+            color: black;
+        }
+        .top-seller-body .sticker-sale{
+            position: absolute;
+            left: 0px;
+            padding: 3px;
+            background-color: black;
+            color: white;
+            top:20px;
+            width: 50px;
+            font-size: 10px;
+        }
+        .top-seller-body p{
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .top-seller-body h5{
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .top-seller-body .product-icons{
+            margin-top:70%;
+            display: none;
+            transition: .5s;
+        }
+        .top-seller-body .product-icons span{
+            padding: 10px 12px;
+            font-size: 14px;
+            margin: 5px;
+            border-radius: 100px;
+            background-color: white;
+            transition: .5s;
+            
+        }
+        .top-seller-body .product-icons span:hover{
+            background-color: #ff6f61;
+            color: white;
+            transition: .5s;
+        }
+        .product-1 .image{
+            background-image: url(./public/image/product-5.jpg);
+            background-size: cover;
+            transition: .5s;
+        }
+        .product-1 .image:hover{
+            background-image: url(./public/image/product-120.jpg);
+            background-size: cover;
+            transition: .5s;
+        }
+        .product-1 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-2 .image{
+            background-image: url(./public/image/product-6.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-2 .image:hover{
+            background-image: url(./public/image/product-121.jpg);
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-2 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-3 .image{
+            background-image: url(./public/image/product-7.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: .5s;
+        }
+        .product-3 .image:hover{
+            background-image: url(./public/image/product-122.jpg);
+            background-size: cover;
+            transition: .5s;
+        }
+        .product-3 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-4 .image{
+            background-image: url(./public/image/product-8.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: .5s;
+        }
+        .product-4 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-5 .image{
+            background-image: url(./public/image/product-9.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: .5s;
+        }
+        .product-5 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-6 .image{
+            background-image: url(./public/image/product-10.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-6 .image:hover{
+            background-image: url(./public/image/product-123.jpg);
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-6 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-7 .image{
+            background-image: url(./public/image/product-11.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-7 .image:hover{
+            background-image: url(./public/image/product-124.jpg);
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-7 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .product-8 .image{
+            background-image: url(./public/image/product-12.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transition: .5s;
+        }
+        .product-8 .image:hover .product-icons{
+            display: block;
+            transition: .5s;
+        }
+        .discover-heading{
+            margin: 70px 0px;
+            text-align: center;
+        }
+        .discover-heading p{
+            padding: 5px;
+            border-bottom: 1px solid black;
+            display: inline;
+            font-size: 16px;
+            font-weight: bold;
+            transition: .5s;
+        }
+        .discover-heading p:hover{
+            border-bottom: 1px solid transparent;
+            transition: .5s;
+            cursor: pointer;
+        }
+        .discover-body{
+            background-image: url(./public/image/cover-4.jpg);
+            width: 100%;
+            height: 450px;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .discover-content{
+            position: absolute;
+            top: 100px;
+            right: 150px;
+        }
+        .discover-content .time{
+            font-size: 50px;
+            font-weight: bold;
+            color: #ff6f61;
+            word-spacing: 15px;
+        }
+        .discover-content h3{
+            width: 300px;
+        }
+        .discover-content .time-text{
+            word-spacing: 70px;
+            margin-left: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #909090;
+        }
+        .discover-content button{
+            margin-top: 30PX;
+            width: 150px;
+            padding: 10px;
+            padding-left: 18px;
+            background-color: black;
+            color: white;
+            text-align: left;
+        }
+        .discover-content button span{
+            transition: .5s;
+        }
+        .discover-content button:hover span{
+            margin-left: 5px;
+            transition: .5s;
+        }
+        .review-heading{
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+        .review-card{
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 150px;
+        }
+        .review-card>div{
+            border:1px solid #dbdbdb;
+            /* height:330px; */
+            width: 320px;
+            padding: 20px;
+        }
+        .card-heading{
+            display: flex;
+        }
+        .card-body{
+            padding: 0px;
+        }
+        .card-body p{
+            font-size: 15px;
+            margin-top: 20px;
+            line-height: 30px;
+            color: #909090;
+        }
+        .review-scroll{
+            text-align: center;
+            letter-spacing: 3px;
+           font-size: 8px;
+        }
+        .footer-top{
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f5f5f5;
+            padding: 100px 50px;
+        }
+        .footer-top-img{
+            margin: 50px 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-top-img>div{
+            height: 170px;
+            width: 170px;
+            /* border: 1px solid black; */
+            background-size: cover;
+        }
+        .footer-top-img>div:hover .footer-img-content{
+            display: block;
+            cursor: pointer;
+        }
+        .footer-top-img .footer-img-content{
+            display: none;
+        }
+        .footer-top-logos img{
+            margin: 0px 20px;
+        }
+        footer{
+            background-image: url(./public/image/back.jpg);
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .footer-heading .form-control{
+            background-color: #303030;
+            border: none;
+            padding: 20px;
+            width: 450px;
+            display: flex;
+            border-radius: 0px;
+        }
+        .footer-heading .form-control:focus{
+            box-shadow: none;
+            color: white;
+        }
+        .form-control::placeholder{
+            color: rgb(172, 172, 172);
+        }
+        .footer-heading button{
+            padding: 19px;
+            border: none;
+            background-color: #707070;
+            color: white;
+            font-weight: bold;
+            width: 150px;
+            margin-left: 20px;
+        }
+        .footer-heading button:hover{
+            background-color: #5a5a5a;
+        }
+        .footer-heading .email-form{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 70px;
+        }
+        .footer-body{
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+        }
+        .footer-main{
+            display: flex;
+
+        }
+        .footer-main ol{
+            list-style: none;
+            text-align: left;
+            margin-right: 40px;
+            font-size: 16px;
+        }
+        .footer-main li{
+            color: rgb(172, 172, 172);
+        }
+        .footer-main p{
+            margin: 0px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .footer-logo h2{
+            margin: 0px;
+            margin-bottom: 20px;
+        }
+        .footer-logo span{
+            color:rgb(172, 172, 172); 
+            margin: 5px;
+        }
+        .footer-bottom{
+            border-top: 1px solid #303030;
+            padding: 20px 100px;
+            display: flex;
+            margin-top: 50px;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #585858;
+        }
+        .list-icon{
+            display: none;
+        }
+        @media  screen and (orientation:portrait) {
+            .heding-top>div{
+                display: none;
+            } 
+            .heding-top{
+                justify-content: space-between;
+                padding: 0px 10px;
+            }
+            .heding-top .shipping{
+                display: block;
+            }
+            .heding-top .list-icon{
+                display: block;
+                font-size: 30px;
+            }
+            header nav,.icons{
+                display: none;
+            }
+            header{
+                justify-content: space-between;
+                padding: 0px 10px;
+                align-items: center;
+            }
+            header h2{
+                margin: 0px;
+                padding: 0px;
+            }
+            header .list-icon{
+                display: block;
+                margin: 0px;
+                font-size: 30px;
+                padding: 0px;
+            }
+            .fashion{
+                grid-template-columns: 12fr;
+                text-align: center;
+            }
+            .fashion>div{
+                display: none;
+            }
+            .fashion .woman-fashion{
+                display: block;
+            }
+            .fashion .woman-fashion h2{
+                margin-top: 40% ;
+                margin-bottom: 150px;
+                font-size: 40px;
+            }
+            .fashion-footer{
+                padding: 10px;
+                margin: 0px;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .fashion-footer>div{
+                margin-bottom: 10px;
+            }
+            .new-collection-heading{
+                margin: 0px ;
+                padding: 10px;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .new-collection-posters{
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+                padding: 20px;
+
+            }
+            .new-collection-posters .left-poster{
+                height: 400px;
+            }
+            .new-collection-posters .right-poster{
+                height: 400px;
+                background-position: 100px;
+               
+            }
+            .new-collection-posters .right-poster:hover{
+                background-position: 95px;
+               
+            }
+            .new-collection-posters h3{
+                font-size: 35px;
+            }
+            .new-collection-posters button{
+                font-size: 18px;
+            }
+            .new-collection-posters2{
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+                padding: 20px;
+
+            }
+            .new-collection-posters2 .left-poster{
+                height: 400px;
+            }
+            .new-collection-posters2 .right-poster{
+                height: 400px;
+                background-position: 10px;
+               
+            }
+            .new-collection-posters2 .right-poster:hover{
+                background-position: 5px;
+               
+            }
+            .new-collection-posters2 h3{
+                font-size: 35px;
+            }
+            .new-collection-posters2 button{
+                font-size: 18px;
+            }
+            .top-seller-body{
+                grid-template-columns: 6fr 6fr;
+                margin: 0px;
+                padding: 10px;
+            }
+            .top-seller-body .image{
+                height: 200px ;
+            }
+            .discover-body{
+                background-size: auto;
+                background-position: center;
+                padding-top: 150px;
+            }
+            .discover-body .discover-content{
+                margin: 0px;
+                margin-left: 50px;
+                padding: 0px;
+                position: static;
+            }
+            .discover-content h3{
+                font-size: 30px;
+            }
+            .discover-body .discover-content .time{
+                word-spacing: 5px;
+                font-size: 30px;
+            }
+            .discover-body .discover-content .time-text{
+                display: none;
+            }
+            .review-card{
+                margin: 30px 20px;
+            }
+            .review-card>div{
+                display: none;
+            }
+            .review-card .center-card{
+                width: 100%;
+                display: block;
+            }
+            .footer-top-headig h2{
+                font-size: 35px;
+            }
+            .footer-top-headig p{
+                font-size: 16px;
+                color: #303030;
+            }
+            .footer-top-img{
+                display: grid;
+                grid-template-columns: 6fr 6fr;
+                margin: 50px 10px;
+                padding: 0px;
+                grid-gap: 10px;
+            }
+            .footer-top{
+                padding: 100px 0px;
+            }
+            .footer-top-logos img{
+                margin: 10px 6px;
+            }
+            footer{
+                background-position: center;
+            }
+            .footer-heading .form-control{
+                width: 150px;
+            }
+            .footer-body{
+                display: block;
+                text-align: left;
+            }
+            .footer-body .footer-logo{
+                margin-bottom: 30px;
+                margin-left: 10px;
+            }
+            .footer-main{
+                display: grid;
+                grid-template-columns: 6fr 6fr;
+                padding-left: 10px;
+            }
+            .footer-main ol{
+                margin-bottom: 30px;
+                padding: 0px;
+            }
+            .footer-bottom{
+                flex-direction: column;
+                padding: 20px;
+            }
+            .footer-bottom div{
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heding-top">
+        <div class="shipping">
+            <span class="fa-solid fa-truck"></span>
+            <span>FREE SHIPPING WORLDWIDE</span>
+        </div>
+        <div class="list-icon"><span class="bi bi-list"></span></div>
+        <div>
+            <ul>
+                <img src="./public/image/logo.png" alt="" width="16" height="16">
+                <a href="#">
+                    <li>
+                        <select>
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Germany">Germany</option>
+                        </select>
+                    </li>
+                </a>
+                <a href="#">
+                    <li class="center-select">
+                        <select>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <select>
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                        </select>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <a href="#"><li>Shipping</li></a>
+                <a href="#"><li>FAQ</li></a>
+                <a href="#"><li>Contact</li></a>
+            </ul>
+        </div>
+        <div class="icons">
+            <ul>
+                <a href="#"><li><span class="fa-brands fa-facebook"></span></li></a>
+                <a href="#"><li><span class="fa-brands fa-twitter"></span></li></a>
+                <a href="#"><li><span class="fa-brands fa-instagram"></span></li></a>
+                <a href="#"><li><span class="fa-brands fa-whatsapp"></span></li></a>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <div class="brand-logo">
+            <h2>Shopper.</h2>
+        </div>
+        <div class="list-icon"><span class="bi bi-list"></span></div>
+        <nav>
+            <ul>
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>Catalog</li></a>
+                <a href="#"><li>Shop</li></a>
+                <a href="#"><li>Pages</li></a>
+                <a href="#"><li>Blog</li></a>
+                <a href="#"><li>Docs</li></a>
+            </ul>
+        </nav>
+        <div class="icons">
+            <ul>
+                <a href="#"><li><span class="fa-solid fa-search"></span></li></a>
+                <a href="#"><li><span class="fa-solid fa-person"></span></li></a>
+                <a href="#"><li><span class="fa-solid fa-heart"></span></li></a>
+                <a href="#"><li><span class="fa-solid fa-cart-shopping"></span></li></a>
+            </ul>
+            <div class="number">2</div>
+        </div>
+
+    </header>
+    <section>
+        <div class="section-heading">
+            <font color="yellow"><span class="fa-solid fa-bolt-lightning"></span><span class="fa-solid fa-bolt-lightning"></span></font>
+            <strong>HAPPY HOLIDAY DEALS ON EVERYTHING</strong>
+            <font color="yellow"><span class="fa-solid fa-bolt-lightning"></span><span class="fa-solid fa-bolt-lightning"></span></font>
+        </div>
+        <div class="fashion">
+            <div class="woman-fashion">
+                <h2>WOMAN</h2>
+                <button><span>Shop Woman</span> <span class="fa-solid fa-arrow-right"></span></button>
+            </div>
+            <div class="mans-fashion">
+                <h2>MAN</h2>
+                <button><span>Shop Man</span> <span class="fa-solid fa-arrow-right"></span></button>
+            </div>
+            <div class="kids-fashion">
+                <h2>KIDS</h2>
+                <button><span>Shop Kids</span> <span class="fa-solid fa-arrow-right"></span></button>
+            </div>
+        </div>
+        <div class="fashion-footer">
+            <div>
+                <div><span class="fa-solid fa-truck"></span></div>
+                <div>
+                    <h5>FREE SHIPPING</h5>
+                    <p>From all orders over $100</p>
+                </div>
+            </div>
+            <div>
+                <div><span class="fa-solid fa-repeat"></span></div>
+                <div>
+                    <h5>FREE RETURNS</h5>
+                    <p>Return money within 30 days</p>
+                </div>
+            </div>
+            <div>
+                <div><span class="fa-solid fa-lock"></span></div>
+                <div>
+                    <h5>SECURE SHOPPING</h5>
+                <p>You're in safe hands</p>
+                </div>
+            </div>
+            <div>
+                <div><span class="fa-solid fa-tag"></span></div>
+                <div><h5>OVER 10,000 STYLES</h5>
+                    <p>We have everything you need</p></div>
+            </div>
+        </div>
+        <div class="new-collection-heading">
+            <p><font size="2" color="#909090"><strong>NEW COLLECTION</strong></font></p>
+            <h1 style="padding:8px 0px;">Best Picks 2019</h1>
+            <p style="font-size: 1rem;"><font color="#5b676c">Appear, dry there darkness they're seas, dry waters thing fly midst. Beast, above fly brought Very green.</font></p>
+        </div>
+        <div class="new-collection-posters">
+            <a href="#">
+                <div class="left-poster">
+                    <!-- <img src="./images/woman-bag.jpg" alt="" width="100%" height="100%"> -->
+                    <h3>Bags Collection</h3>
+                    <button>Shop Now <span class="fa-solid fa-arrow-right"></span></button>
+                </div>
+            </a>
+            <a href="#">
+                <div class="right-poster">
+                    <h3>Printed man's Shirts</h3>
+                    <button>Shop Now <span class="fa-solid fa-arrow-right"></span></button>
+                    <div class="poster-offer">
+                        <p style="padding: 0px; margin:0px;">save</p>
+                        <h3>30%</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="new-collection-posters2">
+            <a href="#">
+                <div class="right-poster">
+                    <h3>Basic woman's Dresses</h3>
+                    <button>Shop Now <span class="fa-solid fa-arrow-right"></span></button>
+                </div>
+            </a>
+            <a href="#">
+                <div class="left-poster">
+                    <!-- <img src="./images/woman-bag.jpg" alt="" width="100%" height="100%"> -->
+                    <h3>Sweatshirts</h3>
+                    <button>Shop Now <span class="fa-solid fa-arrow-right"></span></button>
+                </div>
+            </a>
+        </div>
+        <div class="top-seller-heading">
+            <h2>Top month Sellers</h2>
+            <ul>
+                <a href="#"><li class="active">Woman</li></a>
+                <a href="#"><li>Man</li></a>
+                <a href="#"><li>Kids</li></a>
+            </ul>
+        </div>
+        <div class="top-seller-body">
+            <div class="product-1">
+                <div class="image">
+                    <div class="sticker-new">NEW</div>
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Shoes</p>
+                <h5>Leather mid-heel Sandals</h5>
+                <h5 style="color:#909090;">$129.00</h5>
+            </div>
+            <div class="product-2">
+                <div class="image">
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Dresses</p>
+                <h5>Cotton floral print Dress</h5>
+                <h5 style="color:#909090;">$40.00</h5>
+            </div>
+            <div class="product-3">
+                <div class="image">
+                    <div class="sticker-sale">SALE</div>
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Shoes</p>
+                <h5>Leather Sneakers</h5>
+                <h5 style="color:#909090;"><strike>$85.00</strike> <font size="3" color="#ff6f61">$85.00</font></h5>
+            </div>
+            <div class="product-4">
+                <div class="image">
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Tops</p>
+                <h5>Cropped cotton Top</h5>
+                <h5 style="color:#909090;">$29.00</h5>
+            </div>
+            <div class="product-5">
+                <div class="image">
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Dresses</p>
+                <h5>Floral print midi Dress</h5>
+                <h5 style="color:#909090;">$50.00</h5>
+            </div>
+            <div class="product-6">
+                <div class="image">
+                    <div class="sticker-sale">SALE</div>
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Bags</p>
+                <h5>Suede cross body Bag</h5>
+                <h5 style="color:#909090;"><strike>$79.00</strike> <font size="3" color="#ff6f61">$49.00</font></h5>
+            </div>
+            <div class="product-7">
+                <div class="image">
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Skirts</p>
+                <h5>Printed A-line Skirt</h5>
+                <h5 style="color:#909090;">$79.00</h5>
+            </div>
+            <div class="product-8">
+                <div class="image">
+                    <div class="sticker-new">NEW</div>
+                    <div class="product-icons">
+                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="fa-solid fa-heart"></span>
+                    </div>
+                </div>
+                <p style="color:#909090;">Shoes</p>
+                <h5>Heel strappy Sandals</h5>
+                <h5 style="color:#909090;">$90.00</h5>
+            </div>
+        </div>
+        <div class="discover-heading">
+            <p>Discover more</p>
+        </div>
+        <div class="discover-body">
+            <div class="discover-content">
+                <h3>Get -50% from Summer Collection</h3>
+                <div class="time"><span>1275</span> : <span>22</span> : <span>22</span> : <span>30</span></div>
+                <div class="time-text"><span style="margin-right:42px ;">DAYS</span>  <span style="margin-right:8px ;">HOURS</span>  <span>MINUTES</span>  <span>SECOND</span></div>
+                <button>Shop Now <span class="fa-solid fa-arrow-right"></span></button>
+            </div>
+        </div>
+        <div class="review-heading">
+            <p style="color:#909090;">WHAT BUYERS SAY</p>
+            <h2>Latest buyers Reviews</h2>
+        </div>
+        <div class="review-card">
+            <div>
+                <div class="card-heading">
+                    <div><img src="./public/image/product-13.jpg" alt="" align="left" height="70px" width="70px"></div>
+                    <div style="margin-left:15px ;">
+                        <p style="color:#909090; margin: 0px;">Shoes</p>
+                        <p style="font-size: 16px; font-weight: bold; margin: 0px; padding: 0px;">Low top Sneakers</p>
+                        <div>
+                            <font size="2" color="#ff9736">
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span>
+                            </font> 
+                            <font size="2" color="#cccccc">
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>
+                        From creepeth said moved given divide make multiply of him shall itself also above second doesn't unto created saying land herb sea midset night wherein.
+                    </p>
+                    <p>Logan Edwards, 01 jun 2019</p>
+                </div>
+                
+            </div>
+            <div class="center-card">
+                <div class="card-heading">
+                    <div><img src="./public/image/product-14 (1).jpg" alt="" align="left" height="70px" width="70px"></div>
+                    <div style="margin-left:15px ;">
+                        <p style="color:#909090;">Dresses</p>
+                        <p style="font-size: 16px; font-weight: bold; margin: 0px; padding: 0px;">Cotton print Dress</p>
+                        <div>
+                            <font size="2" color="#ff9736">
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span>
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>
+                        God ever fill great replenish darness unto. Very open. Likeness their that light. Given under image to. Subdue of shell cattle day fish jfrom saw spirit and given stars, us you whales may, land, saw fill unto.
+                    </p>
+                    <p>Jane Jefferson, 29 May 2019</p>
+                </div>
+                
+            </div>
+            <div>
+                <div class="card-heading">
+                    <div><img src="./public/image/product-15 (1).jpg" alt="" align="left" height="70px" width="70px"></div>
+                    <div style="margin-left:15px ;">
+                        <p style="color:#909090;">T-shirt</p>
+                        <p style="font-size: 14px; font-weight: bold; margin: 0px; padding: 0px;">Oversized print T-shirt</p>
+                        <div>
+                            <font size="2" color="#ff9736">
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span> 
+                                <span class="fa-solid fa-star"></span>                        
+                                <span class="fa-solid fa-star"></span>
+                            </font> 
+                            <font size="2" color="#cccccc">
+                                <span class="fa-solid fa-star"></span>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Fill his waters wherein signs lieness water. Second light gathered appear sixth fourth, seasons behold creeping female.
+                    </p>
+                    <p>Darrell Baker, 18 May 2019</p>
+                </div> 
+            </div>
+        </div>
+        <div class="review-scroll">
+            <font color="#ff6f61"><span class="bi bi-circle-fill"></span></font>
+            <font color="#cccccc">
+                <span class="bi bi-circle-fill"></span>
+                <span class="bi bi-circle-fill"></span>
+                <span class="bi bi-circle-fill"></span>
+            </font>
+        </div>
+        <div class="footer-top">
+            <div class="footer-top-headig">
+                <h2>@shopper</h2>
+                <p>Appear, dry there darkness they're seas, dry waters.</p>
+            </div>
+            <div class="footer-top-img">
+                <div style="background-image: url(./public/image/product-16.jpg);">
+                    <div class="footer-img-content" style="background-color: rgba(0, 0, 0, 0.541); height: 100%; color: white; padding-top: 45%; font-size: 12px; word-spacing: 10px;"> 
+                        <span class="fa-solid fa-heart"></span>
+                        <span>248</span>
+                        <span class="fa-solid fa-message"></span>
+                        <span>7</span>
+                    </div>
+                </div>
+                <div style="background-image: url(./public/image/product-17.jpg);">
+                    <div class="footer-img-content" style="background-color: rgba(0, 0, 0, 0.541); height: 100%; color: white; padding-top: 45%; font-size: 12px; word-spacing: 10px;"> 
+                        <span class="fa-solid fa-heart"></span>
+                        <span>248</span>
+                        <span class="fa-solid fa-message"></span>
+                        <span>7</span>
+                    </div>
+                </div>
+                <div style="background-image: url(./public/image/product-18.jpg);">
+                    <div class="footer-img-content" style="background-color: rgba(0, 0, 0, 0.541); height: 100%; color: white; padding-top: 45%; font-size: 12px; word-spacing: 10px;"> 
+                        <span class="fa-solid fa-heart"></span>
+                        <span>248</span>
+                        <span class="fa-solid fa-message"></span>
+                        <span>7</span>
+                    </div>
+                </div>
+                <div style="background-image: url(./public/image/product-19.jpg);">
+                    <div class="footer-img-content" style="background-color: rgba(0, 0, 0, 0.541); height: 100%; color: white; padding-top: 45%; font-size: 12px; word-spacing: 10px;"> 
+                        <span class="fa-solid fa-heart"></span>
+                        <span>248</span>
+                        <span class="fa-solid fa-message"></span>
+                        <span>7</span>
+                    </div>
+                </div>
+                <div style="background-image: url(./public/image/product-20.jpg);">
+                    <div class="footer-img-content" style="background-color: rgba(0, 0, 0, 0.541); height: 100%; color: white; padding-top: 45%; font-size: 12px; word-spacing: 10px;"> 
+                        <span class="fa-solid fa-heart"></span>
+                        <span>248</span>
+                        <span class="fa-solid fa-message"></span>
+                        <span>7</span>
+                    </div>
+                </div>
+                <div style="background-image: url(./public/image/product-21.jpg);">
+                    <div class="footer-img-content" style="background-color: rgba(0, 0, 0, 0.541); height: 100%; color: white; padding-top: 45%; font-size: 12px; word-spacing: 10px;"> 
+                        <span class="fa-solid fa-heart"></span>
+                        <span>248</span>
+                        <span class="fa-solid fa-message"></span>
+                        <span>7</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-top-logos">
+                <img src="./public/image/mango.svg" alt="" width="120px">
+                <img src="./public/image/zara.svg" alt="" width="100px">
+                <img src="./public/image/reebok.svg" alt="" width="120px">
+                <img src="./public/image/asos.svg" alt="" width="100px">
+                <img src="./public/image/stradivarius.svg" alt="" width="120px">
+                <img src="./public/image/adidas.svg" alt="" width="120px">
+                <img src="./public/image/bershka.svg" alt="" width="120px">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-heading">
+            <h3>Want style Ideas and Treats?</h3>
+            <div class="email-form">
+                <input class="form-control" type="email" placeholder="Enter Email *">
+                <button>Subscribe</button>
+            </div>  
+        </div>
+        <div class="footer-body">
+            <div class="footer-logo">
+                <h2>Shopper.</h2>
+                <span class="fa-brands fa-facebook"></span>
+                <span class="fa-brands fa-youtube"></span>
+                <span class="fa-brands fa-twitter"></span>
+                <span class="fa-brands fa-instagram"></span>
+                <span class="fa-brands fa-whatsapp"></span>
+            </div>
+            <div class="footer-main">
+                <ol>
+                    <p>SUPPORT</p>
+                    <a href="#"><li>Contact Us</li></a>
+                    <a href="#"><li>FAQs</li></a>
+                    <a href="#"><li>Size Guide</li></a>
+                    <a href="#"><li>Shipping & Returns</li></a>
+                </ol>
+                <ol>
+                    <p>SHOP</p>
+                    <a href="#"><li>Men's Shopping</li></a>
+                    <a href="#"><li>Women's Shopping</li></a>
+                    <a href="#"><li>Kids' Shopping</li></a>
+                    <a href="#"><li>Discounts</li></a>
+                </ol>
+                <ol>
+                    <p>COMPANY</p>
+                    <a href="#"><li>Our Story</li></a>
+                    <a href="#"><li>Careers</li></a>
+                    <a href="#"><li>Terms & Conditions</li></a>
+                    <a href="#"><li>Privacy & Cookie policy</li></a>
+                </ol>
+                <ol>
+                    <p>CONTACT</p>
+                    <a href="#"><li>1-202-555-0105</li></a>
+                    <a href="#"><li>1-202-555-0106</li></a>
+                    <a href="#"><li>help@shopper.com</li></a>
+                </ol>
+            </div>
+        </div> 
+        <div class="footer-bottom">
+            <div>© 2019 All rights reserved. Designed by Unvab.</div>
+            <div>
+                <img src="./public/image/mastercard.svg" alt="">
+                <img src="./public/image/visa.svg" alt="">
+                <img src="./public/image/amex (1).svg" alt="">
+                <img src="./public/image/paypal.svg" alt="">
+                <img src="./public/image/amex.svg" alt="">
+                <img src="./public/image/klarna.svg" alt="">
+            </div>
+        </div>
+    </footer>
+</html>
